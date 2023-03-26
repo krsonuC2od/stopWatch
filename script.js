@@ -1,40 +1,44 @@
+// variable
 let sec=00;
-let min=00;
+let MileSec=00;
+//  get html using querySelector with class name
  let getSec=document.querySelector('.sec');
-let getMin =document.querySelector('.min');
+ let getMileSec =document.querySelector('.MileSec');
  let startBtn=document.querySelector('.btn-start');
  let stopBtn=document.querySelector('.btn-stop');
  let resetBtn=document.querySelector('.btn-reset');
-let interval;
+//  created interval variable for clear interval
+ let interval;
+//  added eventListener on start button
  startBtn.addEventListener('click',()=>{
   interval= setInterval(startTimer,10)
  })
-
+//  added eventListener on stop button
  stopBtn.addEventListener('click',()=>{
 clearInterval(interval);
  })
-
+//  added eventListener on reset button
  resetBtn.addEventListener('click',()=>{
     clearInterval(interval);
-    min='00';
+    MileSec='00';
     sec='00';
     getSec.innerHTML=sec;
-    getMin.innerHTML=min;
+    getMileSec.innerHTML=MileSec;
      })
-
+// start timer function with some condition
  function startTimer(){
-    min++;
-    if(min<=9){
-        getMin.innerHTML ='0'+min;
+   MileSec++;
+    if(MileSec<=9){
+        getMileSec.innerHTML ='0'+MileSec;
     }
-    if(min>9){
-        getMin.innerHTML =min;
+    if(MileSec>9){
+        getMileSec.innerHTML =MileSec;
     }
-    if(min>99){
+    if(MileSec>99){
         sec++;
         getSec.innerHTML ='0'+sec;
-        min=0;
-        getMin.innerHTML='0' + 0;
+       MileSec=0;
+        getMileSec.innerHTML='0' + 0;
     }
     if(sec > 9){
         getSec.innerHTML=sec;
